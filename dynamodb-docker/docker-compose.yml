@@ -29,7 +29,6 @@ services:
     volumes: 
       - ./bin:/usr/app
 volumes: 
-  pg-data:
   dynamodb: 
     driver: local 
   bin: 
