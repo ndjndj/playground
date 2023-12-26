@@ -2,6 +2,7 @@ version: '3'
 services: 
   dynamodb: 
     image: amazon/dynamodb-local 
+    container_name: dynamodb-local-example
     command: -jar DynamoDBLocal.jar -sharedDb -dbPath . -optimizeDbBeforeStartup
     volumes: 
       - dynamodb:/var/lib/dynamodblocal 
@@ -15,7 +16,7 @@ services:
     depends_on:
       - dynamodb 
     environment: 
-      DYNAMO_ENDPOINT: http://dynamodb-local:8000
+      DYNAMO_ENDPOINT: http://dynamodb-local-example:8000
 volumes: 
   dynamodb: 
     driver: local 
