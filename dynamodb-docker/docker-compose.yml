@@ -17,16 +17,7 @@ services:
       - dynamodb 
     environment: 
       DYNAMO_ENDPOINT: http://dynamodb-local-example:8000
-  awscli: 
-    build: 
-      context: . 
-    entrypoint: [""]
-    tty: true 
-    command: 
-      - /bin/sh 
-    volumes: 
-      - ./bin:/usr/app
-
+      
 volumes: 
   dynamodb: 
     driver: local 
