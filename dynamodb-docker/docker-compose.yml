@@ -18,18 +18,6 @@ services:
       - dynamodb 
     environment: 
       DYNAMO_ENDPOINT: http://dynamodb-local:8000
-  awscli: 
-    build: 
-      context: . 
-      dockerfile: Dockerfile-awscli 
-    entrypoint: [""]
-    tty: true 
-    command: 
-      - /bin/sh 
-    volumes: 
-      - ./bin:/usr/app
 volumes: 
   dynamodb: 
     driver: local 
-  bin: 
-    driver: local
