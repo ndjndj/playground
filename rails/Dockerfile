@@ -1,0 +1,14 @@
+FROM ruby:3.3.0
+RUN apt-get update -qq && apt-get install -y vim 
+
+RUN mkdir /usr/src/app 
+WORKDIR /usr/src/app
+COPY Gemfile /usr/src/app/Gemfile 
+COPY Gemfile.lock /usr/src/app/Gemfile.lock 
+
+RUN curl -Lks https://git.io/rg-ssl | ruby
+RUN gem update --system 
+RUN bundle update --bundler 
+
+RUN bundle install 
+COPY . /usr/src/app 
