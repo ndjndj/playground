@@ -6,7 +6,6 @@ WORKDIR /usr/src/app
 COPY Gemfile /usr/src/app/Gemfile 
 COPY Gemfile.lock /usr/src/app/Gemfile.lock 
 
-RUN curl -Lks https://git.io/rg-ssl | ruby
 RUN gem update --system 
 RUN bundle update --bundler 
 
