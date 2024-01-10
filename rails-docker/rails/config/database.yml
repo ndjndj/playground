@@ -16,4 +16,3 @@ test:
   <<: *default
   database: postgres_test
   password: password
-
