@@ -1,1 +1,1 @@
-docker compose run --rm api rails new . --database=postgresql --api --skip-bundle
+docker compose run --rm api rails new . -skip --database=postgresql --api -skip-bundle
