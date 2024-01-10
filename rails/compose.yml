@@ -1,7 +1,7 @@
 version: '3'
 services: 
   db: 
-    container_name: postgres_playground
+    container_name: postgres
     image: postgres:16.0
     ports: 
       - "5432:5432"
@@ -15,8 +15,8 @@ services:
   rails: 
     build: 
       context: ./rails
-    #command: bash -c "rm -f tmp/pids/server.pid && tail -f log/development.log"
-    command: bash -c "rails s -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && tail -f log/development.log"
+    #command: bash -c "rails s -b '0.0.0.0'"
     volumes:
       - ./rails:/usr/src/app
     ports: 
