@@ -12,11 +12,11 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password 
       - POSTGRES_ROOT_PASSWORD=root
-  rails: 
+  api: 
     build: 
-      context: ./rails
+      context: ./api
     #command: bash -c "rm -f tmp/pids/server.pid && tail -f log/development.log"
-    #command: bash -c "rails s -b '0.0.0.0'"
+    command: bash -c "rails s -b '0.0.0.0'"
     volumes:
       - ./rails:/usr/src/app
     ports: 
