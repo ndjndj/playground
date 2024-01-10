@@ -15,7 +15,7 @@ services:
   api: 
     container_name: api-sample
     build: 
-      context: ./api
+      context: ./rails
     #command: bash -c "rm -f tmp/pids/server.pid && tail -f log/development.log"
     command: bash -c "rails s -b '0.0.0.0'"
     volumes:
