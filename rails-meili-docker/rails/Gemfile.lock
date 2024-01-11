@@ -109,6 +109,8 @@ GEM
     marcel (1.0.2)
     meilisearch (0.26.0)
       httparty (>= 0.17.1, < 0.22.0)
+    meilisearch-rails (0.10.2)
+      meilisearch (~> 0.26.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
     msgpack (1.7.2)
@@ -191,7 +193,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  meilisearch (~> 0.26.0)
+  meilisearch-rails (~> 0.10.2)
   pg (~> 1.1)
   puma (~> 6.4.0)
   rails (~> 7.1.2)
