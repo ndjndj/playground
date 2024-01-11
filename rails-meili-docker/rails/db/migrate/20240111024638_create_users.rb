@@ -1,7 +1,6 @@
 class CreateUsers < ActiveRecord::Migration[7.1]
   def change
     create_table :users do |t|
-      t.string :id, :null => false, comment: "id"
       t.string :name, :null => false, comment: "名前"
       t.string :name_ruby, comment: "名前(フリガナ)"
       t.integer :age, comment: "年齢"
