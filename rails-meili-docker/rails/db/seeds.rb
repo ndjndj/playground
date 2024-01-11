@@ -1,6 +1,6 @@
 
 user_json = ActiveSupport::JSON.decode(File.read(
-  Rails.root.join("db", "sample.json")
+  Rails.root.join("db", "sample_62369.json")
 ))
 
 user_json.each do |d|
