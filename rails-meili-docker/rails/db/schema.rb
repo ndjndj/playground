@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_11_024638) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
+    t.string "uid", null: false, comment: "ユーザーID"
     t.string "name", null: false, comment: "名前"
     t.string "name_ruby", comment: "名前(フリガナ)"
     t.integer "age", comment: "年齢"
