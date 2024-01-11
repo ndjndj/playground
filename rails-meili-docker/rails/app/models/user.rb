@@ -4,6 +4,6 @@ class User < ApplicationRecord
   meilisearch primary_key: :id
 
   meilisearch do
-    attribute :id, :uid, :name, :name_ruby, :url
+    attribute :id, :name, :name_ruby, :url
   end
 end
