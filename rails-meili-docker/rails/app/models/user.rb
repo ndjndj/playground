@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   include MeiliSearch::Rails
-  meilisaerch primary_key: :uid
-  
+
+  meilisearch primary_key: :id
+
   meilisearch do
     attribute :id, :uid, :name, :name_ruby, :url
   end
