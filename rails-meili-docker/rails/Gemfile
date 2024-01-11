@@ -5,7 +5,7 @@ ruby "3.3.0"
 
 gem "bootsnap", require: false
 
-gem "meilisearch", "~> 0.26.0"
+gem "meilisearch-rails", "~> 0.10.2"
 
 gem "pg", "~> 1.1"
 
