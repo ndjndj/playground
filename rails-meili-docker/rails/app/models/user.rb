@@ -5,3 +5,4 @@ class User < ApplicationRecord
     attribute :name, :name_ruby, :age, :pref, :pref_code, :tel, :url
   end
 end
+
