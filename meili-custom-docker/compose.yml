@@ -2,11 +2,9 @@ version: '3.7'
 
 services: 
   search_engine:
-    build: 
-      context: .
-      target: local 
+    image: getmeili/meilisearch:v1.5 
     ports:
-      - 7700:7700 
+      - "7700:7700"
     environment: 
       - MEILI_MASTER_KEY=meili-master-key
     volumes: 
