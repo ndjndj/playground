@@ -3,7 +3,7 @@ FROM getmeili/meilisearch:v1.5 as local
 ENTRYPOINT ["tini", "--"]
 CMD ../meilisearch
 
-FROM public.ecr.aws/lambda/python:3.11
+FROM public.ecr.aws/lambda/python:3.11 as py
 
 COPY requirements.txt ${LAMBDA_TASK_ROOT}
 RUN pip install --upgrade pip 
@@ -12,7 +12,7 @@ RUN pip install -r requirements.txt
 FROM local
 
 COPY ./meili_data /meili_data
-COPY app.py ${LAMBDA_TASK_ROOT} 
+COPY --from=py app.py ${LAMBDA_TASK_ROOT} 
 
 ENV MEILI_HTTP_ADDR 0.0.0.0:7700 
 EXPOSE 7700/tcp 
