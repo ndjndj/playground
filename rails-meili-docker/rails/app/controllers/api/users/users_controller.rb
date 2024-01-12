@@ -28,6 +28,11 @@ class Api::Users::UsersController < ApplicationController
   end
 
   private
+    def query_param
+      return "" if params[:q].blank?
+      params[:q]
+    end
+
     def required_params
       params.require(:user).permit(:name, :name_ruby, :url)
     end
