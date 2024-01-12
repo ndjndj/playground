@@ -3,9 +3,8 @@ Rails.application.routes.draw do
     namespace :users do
       get "", to: "users#index"
       post "", to: "users#create"
-
-
+      patch ":id", to: "users#update"
+      delete ":id", to: "users#delete"
     end
-    #resources :users, only: [:index, :create, :update, :delete]
   end
 end
