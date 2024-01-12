@@ -1,4 +1,4 @@
-FROM getmeili/meilisearch:v1.5 as local
+FROM getmeili/meilisearch as local
 
 ENTRYPOINT ["tini", "--"]
 CMD ./meilisearch
