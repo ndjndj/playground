@@ -47,6 +47,6 @@ end
 #  -d '{"user_system_id": "", "name": "post_name", "name_ruby": "post_name", "url": "test@example.com"}' \
 #  -H "Content-Type: application/json"
 
-# curl -X PATCH http://localhost:3000/api/users/100007 \
-#  -d '{"name": "updated_post_name", "name_ruby": "updated_post_name"}' \
+# curl -X DELETE http://localhost:3000/api/users/1000070000 \
+
 # -H "Content-Type: application/json"
