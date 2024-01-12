@@ -1,7 +1,12 @@
 class Api::UsersController < ApplicationController
 
   def index
-    render json: {message: "index"}, status: :ok
+    query = params[:q]
+    user = User.ms_search(query)
+
+    render json: r,
+           root: data,
+           adapter: :json
   end
 
   def create
