@@ -1,8 +1,7 @@
 class Api::Users::UsersController < ApplicationController
 
   def index
-    query = params[:q]
-    query = "" if query.blank?
+    query = query_param
 
     user = User.ms_search(query)
 
@@ -19,12 +18,17 @@ class Api::Users::UsersController < ApplicationController
   end
 
   def update
-    render json: {message: "update"}, status: :ok
+    user = User.find(params[:id]).update(required_params)
+    render json: user,
+           root: 'data',
+           adapter: :json
   end
 
   def delete
-
-    render json: {message: "delete"}, status: :ok
+    user = User.find(params[:id]).destroy
+    render json: user,
+           root: 'data',
+           adapter: :json
   end
 
   private
