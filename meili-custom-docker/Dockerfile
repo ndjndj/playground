@@ -1,7 +1,7 @@
-FROM getmeili/meilisearch as local
+FROM getmeili/meilisearch:v0.19.0 as local
 
 ENTRYPOINT ["tini", "--"]
-CMD ./bin/sh
+CMD ./meilisearch
 
 FROM local
 
@@ -12,4 +12,4 @@ EXPOSE 7700/tcp
 
 ENTRYPOINT ["tini", "--"]
 
-CMD ["./bin/sh", "--import-dump", "dumps/latest.dump"]
+CMD ["./meilisaerch", "--import-dump", "dumps/latest.dump"]
