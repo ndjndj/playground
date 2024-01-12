@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :users, only: [:index, :create, :delete, :update]
+    resources :users, only: [:index, :create, :update, :delete]
   end
 end
