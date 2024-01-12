@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+
   def index
 
   end
@@ -8,10 +9,11 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    
+
   end
 
   def delete
 
   end
+  
 end
