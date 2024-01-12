@@ -1,0 +1,15 @@
+FROM getmeili/meilisearch:v1.5 as local
+
+ENTRYPOINT ["tini", "--"]
+CMD ../meilisearch
+
+FROM local
+
+COPY ./meili_data /meili_data
+
+ENV MEILI_HTTP_ADDR 0.0.0.0:7700 
+EXPOSE 7700/tcp 
+
+ENTRYPOINT ["tini", "--"]
+
+CMD ["../meilisaerch", "--import-dump", "dumps/latest.dump"]
