@@ -2,21 +2,17 @@ FROM getmeili/meilisearch:v1.5 as local
 
 FROM public.ecr.aws/lambda/python:3.11 as py
 
-COPY requirements.txt ./app/requirements.txt
-COPY app.py app.py
-COPY app.py ${LAMBDA_TASK_ROOT} 
-WORKDIR ./app
+COPY requirements.txt ${LAMBDA_TASK_ROOT}
 RUN pip install --upgrade pip 
 RUN pip install -r requirements.txt 
 
-CMD ["app.lambda_handler"]
+COPY app.py ${LAMBDA_TASK_ROOT} 
+
+#CMD ["app.lambda_handler"]
 
 FROM local
 
 COPY ./meili_data /meili_data
-COPY --from=py /app /app 
-COPY /app ${LAMBDA_TASK_ROOT} 
-
-CMD ["../meilisearch", "--import-dump", "dumps/latest.dump", "--ignore-dump-if-db-exists", "--ignore-missing-dump"]
+COPY --from=py ${LAMBDA_TASK_ROOT} ${LAMBDA_TASK_ROOT} 
 
 CMD ["app.lambda_handler"]
