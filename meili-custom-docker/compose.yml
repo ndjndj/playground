@@ -4,8 +4,8 @@ services:
   search_engine:
     build: 
       context: .
-      #target: local
-      target: py
+      target: local
+      #target: py
     ports:
       - "7700:7700"
       - "9000:8080"
