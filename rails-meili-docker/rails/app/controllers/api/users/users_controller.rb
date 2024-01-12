@@ -15,14 +15,16 @@ class Api::Users::UsersController < ApplicationController
   end
 
   def update
-    user = User.find(params[:id]).update(required_params)
+    user = User.find(params[:id])
+    user.update!(required_params)
     render json: user,
            root: 'data',
            adapter: :json
   end
 
   def delete
-    user = User.find(params[:id]).destroy
+    user = User.find(params[:id])
+    user.destroy!
     render json: user,
            root: 'data',
            adapter: :json
@@ -35,6 +37,16 @@ class Api::Users::UsersController < ApplicationController
     end
 
     def required_params
-      params.require(:user).permit(:name, :name_ruby, :url)
+      params.require(:user).permit(:user_system_id, :name, :name_ruby, :url)
     end
 end
+
+
+# curl \
+#  -X POST http://localhost:3000/api/users \
+#  -d '{"user_system_id": "", "name": "post_name", "name_ruby": "post_name", "url": "test@example.com"}' \
+#  -H "Content-Type: application/json"
+
+# curl -X PATCH http://localhost:3000/api/users/100007 \
+#  -d '{"name": "updated_post_name", "name_ruby": "updated_post_name"}' \
+# -H "Content-Type: application/json"
