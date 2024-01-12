@@ -1,6 +1,4 @@
 class Api::Users::UsersController < ApplicationController
-end
-class Api::UsersController < ApplicationController
 
   def index
     query = params[:q]
