@@ -4,8 +4,8 @@ class Api::UsersController < ApplicationController
     query = params[:q]
     user = User.ms_search(query)
 
-    render json: r,
-           root: data,
+    render json: user,
+           root: 'data',
            adapter: :json
   end
 
