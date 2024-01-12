@@ -3,10 +3,11 @@ version: '3.7'
 services: 
   search_engine:
     build: 
-      context: ./search_engine 
+      context: .
       target: local 
     ports:
       - 7700:7700 
+    environment: 
+      - MEILI_MASTER_KEY=meili-master-key
     volumes: 
-      - ./data.ms:/data.ms 
-      - ./dumps:/dumps
+      - ./meili_data:/meili_data
