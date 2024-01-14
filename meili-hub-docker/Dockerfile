@@ -1,6 +1,4 @@
-FROM public.ecr.aws/lambda/python:3.11 as local
-
-ADD file:282274bb02b29182f35c732f021f3dab6de9f16a1ae24460061ad1abdca6444a in /
+FROM alpine:3.16
 
 CMD ["/bin/sh"]
 
