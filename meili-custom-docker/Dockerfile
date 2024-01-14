@@ -1,7 +1,5 @@
 FROM getmeili/meilisearch:v1.5 as meili
 
-#CMD ["app.lambda_handler"]
-
 FROM local
 
 COPY ./meili_data /meili_data
