@@ -15,7 +15,7 @@ RUN /bin/sh -c ln -s /bin/meilisearch /meilisearch
 
 WORKDIR /meili_data
 
-EXPOSE map[7700/tcp:{}]
+EXPOSE 7700/tcp
 
 ENTRYPOINT ["tini" "--"]
 
