@@ -16,7 +16,7 @@ ENV MEILI_SERVER_PROVIDER docker
 # We don't want to put the meilisearch binary
 WORKDIR /meili_data
 
-EXPOSE  8080/tcp
+EXPOSE 8080/tcp
 
 #ENTRYPOINT ["tini", "--"]
 #CMD     ./meilisearch
