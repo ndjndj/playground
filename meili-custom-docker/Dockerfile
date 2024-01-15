@@ -24,5 +24,5 @@ WORKDIR /meili_data
 
 EXPOSE 8080/tcp
 
-#ENTRYPOINT ["tini", "--"]
-#CMD     ./meilisearch
+ENTRYPOINT ["tini", "--"]
+CMD     ./meilisearch
