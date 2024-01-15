@@ -1,7 +1,6 @@
 FROM gcr.io/distroless/cc-debian12:latest AS cc
 FROM alpine:3.16
 
-
 COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.0 /lambda-adapter /opt/extensions/lambda-adapter
 
 ENV LD_LIBRARY_PATH="/usr/local/lib"
@@ -11,7 +10,6 @@ RUN apk update --quiet \
  && apk add -q --no-cache libgcc tini curl \
  && mkdir /lib64 \ 
  && ln -s /usr/local/lib/ld-linux-*.so.2 /lib64/
-
 
 # Install Meilisearch
 RUN curl -L https://install.meilisearch.com | sh
@@ -28,4 +26,3 @@ EXPOSE 8080/tcp
 
 #ENTRYPOINT ["tini", "--"]
 #CMD     ./meilisearch
-CMD ["sleep", "infinity"]
