@@ -4,7 +4,6 @@ services:
   search_engine:
     build: 
       context: .
-      target: meili
     ports:
       - "9000:8080"
     environment: 
