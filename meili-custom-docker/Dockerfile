@@ -3,7 +3,7 @@ FROM alpine:3.16
 COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.0 /lambda-adapter /opt/extensions/lambda-adapter
 
 RUN apk update --quiet \
-    && apk add -q --no-cache libgcc tini curl libc6-compat
+ && apk add -q --no-cache libgcc tini curl libc6-compat
 
 # Install Meilisearch
 RUN curl -L https://install.meilisearch.com | sh
