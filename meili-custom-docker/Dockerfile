@@ -21,12 +21,13 @@ RUN curl -OL ${url}/${version}/${os} | sh \
 
 ENV MEILI_HTTP_ADDR 0.0.0.0:8080
 ENV MEILI_SERVER_PROVIDER docker
+ENV MEILI_DB_PATH /meili_data/data.ms/
 
 COPY ./meili_data/ /meili_data/
 # This directory should hold all the data related to meilisearch so we're going
 # to move our PWD in there.
 # We don't want to put the meilisearch binary
-WORKDIR /meili_data
+WORKDIR /tmp
 
 EXPOSE 8080/tcp
 
