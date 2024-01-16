@@ -12,7 +12,10 @@ RUN apk update --quiet \
  && ln -s /usr/local/lib/ld-linux-*.so.2 /lib64/
 
 # Install Meilisearch
-RUN curl -L https://install.meilisearch.com | sh
+ARG version = "v1.5.1"
+ARG os = "meilisearch-linux-amd64"
+ARG url = "https://github.com/meilisearch/meilisearch/releases/download"
+RUN curl -OL ${url}/${version}/${os} | sh
 
 ENV MEILI_HTTP_ADDR 0.0.0.0:8080
 ENV MEILI_SERVER_PROVIDER docker
@@ -27,5 +30,5 @@ COPY ./meili_data /meili_data
 EXPOSE 8080/tcp
 
 ENTRYPOINT ["tini", "--"]
-CMD     ../meilisearch
-#CMD ["sleep", "infinity"]
+#CMD     ../meilisearch
+CMD ["sleep", "infinity"]
