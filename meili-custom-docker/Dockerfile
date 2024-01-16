@@ -32,5 +32,5 @@ COPY ./meili_data /meili_data
 EXPOSE 8080/tcp
 
 ENTRYPOINT ["tini", "--"]
-#CMD     ../meilisearch
-CMD ["sleep", "infinity"]
+CMD ../meilisearch
+#CMD ["sleep", "infinity"]
