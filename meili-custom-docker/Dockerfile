@@ -17,7 +17,8 @@ ARG os="meilisearch-linux-amd64"
 ARG url="https://github.com/meilisearch/meilisearch/releases/download"
 RUN curl -OL ${url}/${version}/${os} | sh \
  && mv ${os} meilisearch \
- && chmod +x meilisearch 
+ && chmod +x meilisearch \
+ && ./meilisearch var/task/
 
 ENV MEILI_HTTP_ADDR 0.0.0.0:8080
 ENV MEILI_SERVER_PROVIDER docker
