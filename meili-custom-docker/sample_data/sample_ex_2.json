@@ -1,0 +1,20 @@
+[
+    {
+        "pk":  "-1",
+        "code":  "1101",
+        "old_zipcode":  "60",
+        "zipcode":  "600000",
+        "kana_pref":  "ﾎｯｶｲﾄﾞｳ",
+        "kana_city":  "ｻｯﾎﾟﾛｼﾁｭｳｵｳｸ",
+        "kana_town":  "",
+        "pref":  "北海道",
+        "city":  "札幌市中央区",
+        "town":  "",
+        "is_town_has_multi_code":  "0",
+        "has_banchi":  "0",
+        "has_cho":  "0",
+        "is_code_has_multi_town":  "0",
+        "is_update":  "0",
+        "change_reason":  "0"
+    }
+]

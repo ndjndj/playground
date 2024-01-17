@@ -8,5 +8,6 @@ services:
       - "9000:8080"
     environment: 
       - MEILI_MASTER_KEY=meili-master-key
+      - MEILI_ENV=development
     volumes: 
       - ./meili_data:/var/task/meili_data/

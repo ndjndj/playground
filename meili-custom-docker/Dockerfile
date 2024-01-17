@@ -17,11 +17,14 @@ ARG os="meilisearch-linux-amd64"
 ARG url="https://github.com/meilisearch/meilisearch/releases/download"
 RUN curl -OL ${url}/${version}/${os} | sh \
  && mv ${os} meilisearch \
- && chmod +x meilisearch
+ && chmod +x meilisearch \
+ && mv meilisearch /usr/bin/
 
 ENV MEILI_HTTP_ADDR 0.0.0.0:8080
 ENV MEILI_SERVER_PROVIDER docker
 ENV MEILI_DB_PATH /mnt/meili_data/data.ms
+ENV MEILI_MASTER_KEY f340cdc6ae3d4f65 
+ENV MEILI_ENV production
 
 COPY ./meili_data /mnt/meili_data
 
@@ -33,5 +36,5 @@ WORKDIR /mnt/meili_data
 EXPOSE 8080/tcp
 
 ENTRYPOINT ["tini", "--"]
-CMD ../../meilisearch
+CMD /usr/bin/meilisearch
 #CMD ["sleep", "infinity"]
