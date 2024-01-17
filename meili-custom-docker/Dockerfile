@@ -32,6 +32,8 @@ WORKDIR /mnt/meili_data
 
 EXPOSE 8080/tcp
 
-ENTRYPOINT ["tini", "-s", "--"]
+ENV TINI_SUBREAPER true
+
+ENTRYPOINT ["tini", "--"]
 CMD ../../meilisearch
 #CMD ["sleep", "infinity"]
