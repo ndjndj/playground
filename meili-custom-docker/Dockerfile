@@ -3,6 +3,7 @@ FROM alpine:3.16
 
 COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.0 /lambda-adapter /opt/extensions/lambda-adapter
 
+# for execute meilisearch
 ENV LD_LIBRARY_PATH="/usr/local/lib"
 COPY --from=cc --chown=root:root --chmod=755 /lib/*-linux-gnu/* /usr/local/lib/
 
