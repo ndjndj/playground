@@ -6,8 +6,8 @@ services:
       context: .
     ports:
       - "9000:8080"
-    environment: 
-      - MEILI_MASTER_KEY=f340cdc6ae3d4f65
-      - MEILI_ENV=production
+    #environment: 
+      #- MEILI_MASTER_KEY=meili-master-key
+      #- MEILI_ENV=development
     volumes: 
       - ./meili_data:/var/task/meili_data/
