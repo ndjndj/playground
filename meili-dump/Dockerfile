@@ -39,11 +39,11 @@ WORKDIR /tmp
 EXPOSE 8080/tcp
 
 ENTRYPOINT ["tini", "--"]
-CMD [
-    "/usr/bin/meilisearch",  
-    "--import-dump", 
-    "dumps/latest.dump", 
-    "--ignore-missing-dump",
-    "--ignore-dump-if-db-exists"
+CMD [ \
+    "/usr/bin/meilisearch", \
+    "--import-dump", \ 
+    "dumps/latest.dump", \
+    "--ignore-missing-dump", \
+    "--ignore-dump-if-db-exists" \
 ]
 #CMD ["sleep", "infinity"]
