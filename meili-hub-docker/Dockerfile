@@ -1,6 +1,10 @@
-FROM getmeili/meilisearch:v1.5
+FROM getmeili/meilisearch:v1.5 as meili
 
 COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.0 /lambda-adapter /opt/extensions/lambda-adapter
+
+FROM main
+
+COPY --from=meili /meilisearch /usr/bin/meilisearch 
 
 ENV MEILI_HTTP_ADDR 0.0.0.0:8080
 ENV MEILI_SERVER_PROVIDER docker
