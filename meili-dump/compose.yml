@@ -10,4 +10,5 @@ services:
       - MEILI_MASTER_KEY=meili-master-key
       - MEILI_ENV=development
     volumes: 
-      - ./meili_data:/mnt/meili_data
+      - ./meili_data/data.ms:/tmp/data.ms 
+      - ./meili_data/dumps:/dumps
