@@ -42,7 +42,7 @@ ENTRYPOINT ["tini", "--"]
 CMD [ \
     "/usr/bin/meilisearch", \
     "--import-dump", \ 
-    "dumps/latest.dump", \
+    "/usr/meili_dumps/latest.dump", \
     "--ignore-missing-dump", \
     "--ignore-dump-if-db-exists" \
 ]
