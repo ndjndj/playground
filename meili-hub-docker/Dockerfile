@@ -1,22 +1,19 @@
-FROM alpine:3.16
+FROM getmeili/meilisearch:v1.5
 
-CMD ["/bin/sh"]
+COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.0 /lambda-adapter /opt/extensions/lambda-adapter
 
-ENV MEILI_HTTP_ADDR=0.0.0.0:7700
+ENV MEILI_HTTP_ADDR 0.0.0.0:8080
+ENV MEILI_SERVER_PROVIDER docker
+ENV MEILI_DB_PATH /mnt/meili_data/data.ms
+ENV MEILI_MASTER_KEY f340cdc6ae3d4f65 
+ENV MEILI_ENV production
 
-ENV MEILI_SERVER_PROVIDER=docker
+COPY ./meili_data /mnt/meili_data
 
-RUN /bin/sh -c apk update --quiet && apk add -q --no-cache libgcc tini curl 
+WORKDIR /mnt/meili_data
 
-COPY /target/release/meilisearch /bin/meilisearch 
-COPY /target/release/meilitool /bin/meilitool 
+EXPOSE 8080/tcp
 
-RUN /bin/sh -c ln -s /bin/meilisearch /meilisearch
-
-WORKDIR /meili_data
-
-EXPOSE 7700/tcp
-
-ENTRYPOINT ["tini" "--"]
-
-CMD ["/bin/sh" "-c" "/bin/meilisearch"]
+ENTRYPOINT ["tini", "--"]
+CMD /usr/bin/meilisearch
+#CMD ["sleep", "infinity"]
