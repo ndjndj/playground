@@ -16,7 +16,7 @@ RUN apk update --quiet \
     && apk add -q --no-cache libgcc tini curl
 
 COPY --from=meili /bin/meilisearch /bin/meilisearch 
-COPY --from=meili /bin/meilitool /bin/meilisearch 
+COPY --from=meili /bin/meilitool /bin/meilitool
 
 # To stay compatible with the older version of the container (pre v0.27.0) we're
 # going to symlink the meilisearch binary in the path to `/meilisearch`
@@ -29,5 +29,5 @@ WORKDIR /mnt/meili_data
 EXPOSE 8080/tcp
 
 ENTRYPOINT ["tini", "--"]
-#CMD /bin/meilisearch
-CMD ["sleep", "infinity"]
+CMD /bin/meilisearch
+#CMD ["sleep", "infinity"]
