@@ -4,14 +4,16 @@ COPY --from=public.ecr.aws/awsguru/aws-lambda-adapter:0.7.0 /lambda-adapter /opt
 
 FROM meili
 
-COPY --from=meili /bin/meilisearch /usr/bin/meilisearch 
-COPY --from=meili /bin/meilitool 
+COPY --from=meili /bin/meilisearch /bin/meilisearch 
+COPY --from=meili /bin/meilitool /bin/meilisearch 
 
 ENV MEILI_HTTP_ADDR 0.0.0.0:8080
 ENV MEILI_SERVER_PROVIDER docker
 ENV MEILI_DB_PATH /mnt/meili_data/data.ms
-ENV MEILI_MASTER_KEY f340cdc6ae3d4f65 
-ENV MEILI_ENV production
+#ENV MEILI_MASTER_KEY f340cdc6ae3d4f65 
+#ENV MEILI_ENV production
+ENV MEILI_MASTER_KEY meili-master-key
+ENV MEILI_ENV development
 
 COPY ./meili_data /mnt/meili_data
 
@@ -20,5 +22,5 @@ WORKDIR /mnt/meili_data
 EXPOSE 8080/tcp
 
 ENTRYPOINT ["tini", "--"]
-CMD /usr/bin/meilisearch
+CMD /bin/meilisearch
 #CMD ["sleep", "infinity"]
