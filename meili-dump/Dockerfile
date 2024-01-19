@@ -26,9 +26,6 @@ ENV MEILI_SERVER_PROVIDER docker
 ENV MEILI_DB_PATH /tmp/data.ms
 ENV MEILI_DUMP_DIR /dumps
 ENV MEILI_MASTER_KEY meili-master-key
-ENV MEILI_IMPORT_DUMP 
-ENV MEILI_IGNORE_MISSING_DUMP 
-ENV MEILI_IGNORE_DUMP_IF_DB_EXISTS
 #ENV MEILI_ENV production
 
 COPY ./meili_data/data.ms /tmp/data.ms 
@@ -42,5 +39,11 @@ WORKDIR /tmp
 EXPOSE 8080/tcp
 
 ENTRYPOINT ["tini", "--"]
-CMD /usr/bin/meilisearch
+CMD [
+    "/usr/bin/meilisearch",  
+    "--import-dump", 
+    "dumps/latest.dump", 
+    "--ignore-missing-dump",
+    "--ignore-dump-if-db-exists"
+]
 #CMD ["sleep", "infinity"]
