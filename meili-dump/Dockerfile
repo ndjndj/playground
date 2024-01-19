@@ -24,12 +24,12 @@ RUN curl -OL ${url}/${version}/${os} | sh \
 ENV MEILI_HTTP_ADDR 0.0.0.0:8080
 ENV MEILI_SERVER_PROVIDER docker
 ENV MEILI_DB_PATH /tmp/data.ms/
-ENV MEILI_DUMP_DIR /dumps/
+ENV MEILI_DUMP_DIR /usr/meili_dumps/
 ENV MEILI_MASTER_KEY meili-master-key
 #ENV MEILI_ENV production
 
-COPY ./meili_data/.keep ./meili_data/data.ms* /tmp/data.ms 
-COPY ./meili_data/.keep ./meili_data/dumps* /dumps
+COPY ./meili_data/.keep ./meili_data/data.ms /tmp/data.ms/
+COPY ./meili_data/.keep ./meili_data/dumps /usr/meili_dumps/
 
 # This directory should hold all the data related to meilisearch so we're going
 # to move our PWD in there.

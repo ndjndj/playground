@@ -11,4 +11,4 @@ services:
       - MEILI_ENV=development
     volumes: 
       - ./meili_data/data.ms:/tmp/data.ms 
-      - ./meili_data/dumps:/dumps
+      - ./meili_data/dumps:/usr/meili_dumps
