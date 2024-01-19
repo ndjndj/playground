@@ -3,7 +3,6 @@ services:
   meilisearch: 
     build: 
       context: .
-      target: main
     ports:
       - "7700:7700"
     environment: 
