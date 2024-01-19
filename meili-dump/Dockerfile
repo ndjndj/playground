@@ -26,7 +26,7 @@ ENV MEILI_SERVER_PROVIDER docker
 ENV MEILI_DB_PATH /tmp/data.ms/
 ENV MEILI_DUMP_DIR /usr/meili_dumps/
 ENV MEILI_MASTER_KEY meili-master-key
-#ENV MEILI_ENV production
+ENV MEILI_ENV production
 
 COPY ./meili_data/.keep ./meili_data/data.ms /tmp/data.ms/
 COPY ./meili_data/.keep ./meili_data/dumps /usr/meili_dumps/
