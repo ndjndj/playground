@@ -9,6 +9,7 @@ services:
     environment: 
       - MEILI_MASTER_KEY=meili-master-key
       - MEILI_ENV=development
+      - MEILI_LOG_LEVEL=DEBUG
     volumes: 
       - ./meili_data/data.ms:/tmp/data.ms 
       - ./meili_data/dumps:/usr/meili_dumps
